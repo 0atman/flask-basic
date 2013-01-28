@@ -1,0 +1,8 @@
+A blank flask app, ready to go with a mongodb'd admin.
+see it live at <http://flask-basic.herokuapp.com/>
+
+Thanks
+------
+To Serge S. Koval and the flask-admin contributors,
+I've based most of the code on their mongodb example:
+<https://github.com/mrjoes/flask-admin/blob/master/examples/mongoengine/simple.py>
