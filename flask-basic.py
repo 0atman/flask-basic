@@ -1,9 +1,11 @@
+import os
 
 from flask import Flask
 from flask.ext import admin
 from flask import render_template
 from flask.ext.admin.contrib.mongoengine import ModelView
 from flask.ext.mongoengine import MongoEngine
+from mongoengine import connect
 
 from models import User, Todo, Tag, Post
 from admin import UserView
@@ -16,6 +18,13 @@ app.config['SECRET_KEY'] = '123456790'
 app.config['MONGODB_SETTINGS'] = {'DB': 'testing'}
 
 # Create models
+connect(
+    'flask-basic',
+    host=os.environ.get(
+        'MONGOLAB_URI',
+        'mongodb://localhost/flask-basic'
+    )
+)
 db = MongoEngine()
 db.init_app(app)
 
