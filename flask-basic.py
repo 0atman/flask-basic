@@ -45,6 +45,6 @@ if __name__ == '__main__':
     admin.add_view(ModelView(Tag))
     admin.add_view(ModelView(Post))
 
-    # Start app
-    app.debug = True
-    app.run('0.0.0.0', 5000)
+    # Bind to PORT if defined, otherwise default to 5000.
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
